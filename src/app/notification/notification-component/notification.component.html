@@ -1,0 +1,11 @@
+<div *ngIf="!hidden">
+  <div *ngFor="let notification of notifications" class="notifications-section">
+    <div>
+      {{ notification.title }}
+      <br>
+      <span [innerHTML]="notification.text"></span>
+    </div>
+  </div>
+</div>
+
+<button (click)="onToggleNotifications()" class="btn btn-primary">Скрыть уведомления</button>

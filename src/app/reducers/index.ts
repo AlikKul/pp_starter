@@ -6,9 +6,9 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
+import { NotificationState } from '../notification/state/notification.reducer';
 
 export interface State {
-
 }
 
 export const reducers: ActionReducerMap<State> = {

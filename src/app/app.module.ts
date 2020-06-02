@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // Bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,9 +15,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, metaReducers } from './reducers';
 
+// Components
+import { ScheduleVisitAuthorizedComponent } from './schedule-visit-authorized/schedule-visit-authorized.component';
+import { ScheduleVisitAuthorizedContainerComponent } from './schedule-visit-authorized/schedule-visit-authorized-container.component';
+
 // Modules
-import { ScheduleVisitAuthorizedComponent } from './schedule_visit_authorized/schedule-visit-authorized.component';
-import { ScheduleVisitAuthorizedContainerComponent } from './schedule_visit_authorized/schedule-visit-authorized-container.component';
+import { NotificationModule } from './notification/notification.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,7 @@ import { ScheduleVisitAuthorizedContainerComponent } from './schedule_visit_auth
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     NgbModule,
     StoreModule.forRoot(reducers, {
@@ -40,7 +45,9 @@ import { ScheduleVisitAuthorizedContainerComponent } from './schedule_visit_auth
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    NotificationModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ScheduleVisitAuthorizedContainerComponent } from './schedule_visit_authorized/schedule-visit-authorized-container.component';
+import { NotificationContainerComponent } from './notification/notification-component/notification-container.component';
 
 
 const routes: Routes = [
-  { path: '', component: ScheduleVisitAuthorizedContainerComponent}
+  { path: '', component: NotificationContainerComponent}
 ];
 
 @NgModule({
