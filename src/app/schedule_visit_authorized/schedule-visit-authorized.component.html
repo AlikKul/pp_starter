@@ -1,0 +1,63 @@
+<p>Компонент записи на приём залогинившегося пользователя.</p>
+<hr>
+
+<h2>Кого выхотите записать?</h2>
+<div class="step-one" [ngClass]="{ 'inactive': currentStep != 1 }">
+  <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="typeOfPatient">
+    <label ngbButtonLabel class="btn-primary">
+      <input ngbButton type="radio" value="self"> Себя
+    </label>
+    <label ngbButtonLabel class="btn-primary">
+      <input ngbButton type="radio" value="child"> Ребёнка
+    </label>
+  </div>
+
+  <div *ngIf="typeOfPatient === 'child'"
+    class="btn-group btn-group-toggle"
+    ngbRadioGroup name="radioBasic"
+    [(ngModel)]="selectedChild"
+  >
+    <hr>
+    <label *ngFor="let child of children; index as i" ngbButtonLabel class="btn-primary">
+      <input ngbButton type="radio" value="children[i]"> {{ child }}
+    </label>
+
+  </div>
+
+  <hr>
+</div>
+
+<div *ngIf="currentStep >= 2" class="step-two" [ngClass]="{ 'inactive': currentStep != 2 }">
+  step two
+  <hr>
+</div>
+
+<div *ngIf="currentStep >= 3" class="step-two" [ngClass]="{ 'inactive': currentStep != 3 }">
+  step three
+  <hr>
+</div>
+
+<div *ngIf="currentStep >= 4" class="step-two" [ngClass]="{ 'inactive': currentStep != 4 }">
+  step four
+  <hr>
+</div>
+
+<div *ngIf="currentStep >= 5" class="step-two" [ngClass]="{ 'inactive': currentStep != 5 }">
+  step five
+  <hr>
+</div>
+
+<div *ngIf="currentStep >= 6" class="step-two">
+  step six
+  <hr>
+</div>
+
+<div *ngIf="currentStep != 6" class="actions">
+  <button class="btn btn-primary" (click)="previousStep()"><- К ПРЕДЫДУЩЕМУ ШАГУ</button>
+  <button class="btn btn-primary" (click)="nextStep()">ПРОДОЛЖИТЬ -></button>
+</div>
+<div *ngIf="currentStep === 6" class="actions">
+  <button class="btn btn-primary" (click)="cancel()">ОТМЕНИТЬ ЗАПИСЬ</button>
+  <button class="btn btn-primary" (click)="giveTicket()">РАСПЕЧАТАТЬ ТАЛОН</button>
+</div>
+

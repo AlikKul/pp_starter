@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { environment } from 'src/environments/environment';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -14,12 +14,19 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, metaReducers } from './reducers';
 
+// Modules
+import { ScheduleVisitAuthorizedComponent } from './schedule_visit_authorized/schedule-visit-authorized.component';
+import { ScheduleVisitAuthorizedContainerComponent } from './schedule_visit_authorized/schedule-visit-authorized-container.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ScheduleVisitAuthorizedComponent,
+    ScheduleVisitAuthorizedContainerComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgbModule,
     StoreModule.forRoot(reducers, {
